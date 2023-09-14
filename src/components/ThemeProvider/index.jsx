@@ -23,12 +23,13 @@ const theme = {
         default: {
             a: '',
             b: '',
-            c: '',
+            c: '#f5f5f5',
             d: ''
         }
     },
     spacing: {
         s: '16px',
+        m: '24px',
         l: '32px'
     },
     fontFamily: "'Montserrat', sans-serif"
