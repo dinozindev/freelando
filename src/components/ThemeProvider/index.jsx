@@ -5,20 +5,20 @@ const theme = {
     colors: {
         white: '#fff',
         warning: '',
-        focus: '',
+        focus: '#b009ff',
         primary: {
             a: '#5754ED',
-            b: '',
+            b: '#d93114',
             c: ''
         },
         secondary: {
-            a: '#EBEAF9',
+            a: '#f8f8fd',
             b: '',
             c: ''
         },
         dark: {
             a: '',
-            b: '',
+            b: '#b61b00',
         },
         default: {
             a: '#373737',
