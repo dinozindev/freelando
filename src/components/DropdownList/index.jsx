@@ -76,14 +76,14 @@ export const DropdownList = ({ label, opcoes }) => {
     // estado da opcao que foi selecionada.
     const [opcaoSelect, setOpcaoSelect] = useState(null);
 
-    // a cada pressionada de key down, é aumentado um no valor de opcaoOnFocus com base no valor anterior, que está diretamente correlacionado com o valor do index de cada opção do menu dropdown. Ou seja, opcaoOnFocus servirá para manipular a opção atual em foco conforme a key down é pressionada. 
+    // a cada pressionada da ArrowUp, é aumentado um no valor de opcaoOnFocus com base no valor anterior, que está diretamente correlacionado com o valor do index de cada opção do menu dropdown. O mesmo será feito com a ArrowUp, porém com um resultado negativo. Ou seja, opcaoOnFocus servirá para manipular a opção atual em foco conforme a key down/up é pressionada. A tecla Enter e o clique do mouse sobre a opção irão servir para definir qual a opção que foi selecionada, atualizando o estado de opcaoSelect. 
     const manipularTeclaDoTeclado = (e) => {
         alternarVisibilidade(true);
         switch (e.key) {
             case 'ArrowDown':
                 e.preventDefault()
                 setOpcaoOnFocus(focusAntigo => {
-                    if (focusAntigo == null) {
+                    if (focusAntigo == null || focusAntigo === (opcoes.length - 1)) {
                         return 0;
                     }
 
@@ -107,6 +107,11 @@ export const DropdownList = ({ label, opcoes }) => {
                 setOpcaoOnFocus(null)
                 alternarVisibilidade(false)
                 setOpcaoSelect(opcoes[opcaoOnFocus]);
+                break;
+            case 'Tab':
+            case 'Escape':
+                setOpcaoOnFocus(null)
+                alternarVisibilidade(false)
                 break;
             default:
                 break;
