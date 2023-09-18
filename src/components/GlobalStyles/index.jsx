@@ -8,6 +8,9 @@ const style = (theme) => {
     body: {
         margin: 0,
         padding: 0
+    },
+    button: {
+        fontFamily: theme.fontFamily
     }
  }
 }
